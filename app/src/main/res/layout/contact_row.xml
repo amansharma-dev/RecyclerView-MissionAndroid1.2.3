@@ -33,6 +33,7 @@
                 android:layout_marginStart="5dp"
                 android:layout_centerVertical="true"
                 android:background="@android:drawable/sym_contact_card"
+                android:contentDescription="@string/card_folder_image_android_drawable"
                 />
 
             <LinearLayout

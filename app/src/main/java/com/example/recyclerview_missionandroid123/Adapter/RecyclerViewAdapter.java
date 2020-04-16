@@ -1,10 +1,13 @@
 package com.example.recyclerview_missionandroid123.Adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -49,8 +52,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         return contactList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
+        public ImageView imageView;
         public TextView userName;
         public TextView emailId;
         public TextView mobileNumber;
@@ -59,10 +63,45 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
+            imageView = itemView.findViewById(R.id.imageView);
             userName = itemView.findViewById(R.id.name_textView);
             emailId = itemView.findViewById(R.id.emailId_textView);
             mobileNumber = itemView.findViewById(R.id.mobileNumber_textView);
             cardView = itemView.findViewById(R.id.cardView_cardView);
+            imageView.setOnClickListener(this);
+            userName.setOnClickListener(this);
+            emailId.setOnClickListener(this);
+            mobileNumber.setOnClickListener(this);
+
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            int position = getAdapterPosition();
+            Contact contact = contactList.get(position);
+            switch(view.getId()){
+                case R.id.imageView:
+                    Toast.makeText(context, "Image Position: "+position, Toast.LENGTH_SHORT).show();
+                    break;
+
+                case R.id.name_textView:
+                    Log.d("CLICKED", "onClick: Name: "+contact.getName());
+                    break;
+
+                case R.id.emailId_textView:
+                    Log.d("CLICKED", "onClick: Email Id: "+contact.getEmailId());
+                    break;
+
+                case R.id.mobileNumber_textView:
+                    Log.d("CLICKED", "onClick: Mobile Number: "+contact.getMobileNumber());
+                    break;
+
+                default:
+                    Log.d("CLICKED", "onClick: Card View: "+position);
+
+            }
+
         }
     }
 }
