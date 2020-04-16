@@ -1,21 +1,33 @@
 package com.example.recyclerview_missionandroid123;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ArrayAdapter;
 
 import com.example.recyclerview_missionandroid123.Data.DatabaseHandler;
 import com.example.recyclerview_missionandroid123.Model.Contact;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    private RecyclerView recyclerView;
+    private ArrayList<String> contactArrayList;
+    private ArrayAdapter<String> contactArrayAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        recyclerView = findViewById(R.id.recyclerView);
+
+        contactArrayList = new ArrayList<>();
+
+
 
         DatabaseHandler databaseHandler = new DatabaseHandler(MainActivity.this);
 
