@@ -2,4 +2,7 @@
     <string name="app_name">RecyclerView-MissionAndroid1.2.3</string>
     <string name="drop_table">\"DROP TABLE IF EXISTS \"</string>
     <string name="card_folder_image_android_drawable">card folder image android drawable</string>
+    <string name="name">Name :</string>
+    <string name="email_id">Email Id :</string>
+    <string name="mobile_number">Mobile Number :</string>
 </resources>
